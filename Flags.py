@@ -1,0 +1,1 @@
+takePhotoFlag = 0
