@@ -1,9 +1,9 @@
 takePhotoFlag = 0
 
 # COMMS
-COMMS_transmit = 0
-COMMS_sleep = 1
-COMMS_idle = 0
+COMMSTRANSMIT = 0
+COMMSSLEEP = 1
+COMMSIDLE= 0
 
 #General
-Sleep_out = 0; # For signal turn on
+SLEEPOUT = 0; # For signal turn on

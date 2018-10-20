@@ -2,14 +2,12 @@
 # Time is in seconds
 
 # States
-COMMS_transmit = 0
-COMMS_sleep = 1
-COMMS_idle = 0
-Sleep_out = 0;
+COMMSTRANSMIT = 0
+COMMSSLEEP = 1
+COMMSIDLE = 0
+SLEEPOUT = 0
 
 state_timer = 0
-
-hours = 60 * 60
 
 # Idle waiting for
 idle_state = 1
@@ -18,7 +16,6 @@ idle_power_typical = 298
 idle_time = 90 * 60 - 90  # For all time except for 90s transmission
 
 # Sleep during launch
-sleep_time = 60 * 30  # 30 minutes
 sleep_power = 0
 
 # Transmit Picture
