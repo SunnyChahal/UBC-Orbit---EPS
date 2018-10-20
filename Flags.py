@@ -23,7 +23,7 @@ COURSE_STATE_POWER = 200       #assumption
 PICTURE_STATE = 3
 PICTURE_STATE_POWER = 500    #assumption
 
-ADSC_state = SLEEP_STATE
+ADSC_STATE = 0
 FIRST_TIME = 1              #use it in Detumbling state to calculate the power
 
 CDH_TAKE_PHOTO = 0
