@@ -7,3 +7,6 @@ COMMSIDLE= 0
 
 #General
 SLEEPOUT = 0; # For signal turn on
+
+#ADSC 
+Hello
