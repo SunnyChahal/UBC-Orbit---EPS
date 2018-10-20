@@ -24,27 +24,29 @@ transmit_power = 3410  # Max and typical are similar values
 
 
 def commsPower():
-    global COMMS_transmit
-    global COMMS_sleep
-    global COMMS_idle
+    global COMMSTRANSMIT
+    global COMMSSLEEP
+    global COMMSIDLE
+    global SLEEPOUT
+
     global state_timer
 
-    if COMMS_sleep == 1 and Sleep_out == 1:
+    if COMMSSLEEP == 1 and Sleep_out == 1:
         COMMS_sleep = 0
         COMMS_idle = 1
 
     elif COMMS_transmit == 1 and state_timer >= transmit_time:
-        COMMS_transmit = 0
-        COMMS_idle = 1
+        COMMSTRANSMIT = 0
+        COMMSIDLE = 1
         state_timer = 0
 
     state_timer += 1
 
-    if COMMS_transmit:
+    if COMMSTRANSMIT:
         return transmit_power
 
-    elif COMMS_sleep:
+    elif COMMSSLEEP:
         return sleep_power
 
-    elif COMMS_idle:
+    elif COMMSIDLE:
         return idle_power_typical
