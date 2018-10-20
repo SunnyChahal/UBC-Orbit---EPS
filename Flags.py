@@ -9,4 +9,24 @@ COMMSIDLE= 0
 SLEEPOUT = 0; # For signal turn on
 
 #ADSC 
-Hello
+SLEEP_STATE = 0
+SLEEP_POWERDRAW = 0
+SLEEP_TIME = 0
+
+DETUMBLING_STATE = 1
+DETUMBLING_STATE_POWER = 100   #assumption
+DETUMBLING_STATE_TIME = 10    #assumption
+
+COURSE_STATE = 2
+COURSE_STATE_POWER = 200       #assumption
+
+PICTURE_STATE = 3
+PICTURE_STATE_POWER = 500    #assumption
+
+ADSC_state = SLEEP_STATE
+FIRST_TIME = 1              #use it in Detumbling state to calculate the power
+
+CDH_TAKE_PHOTO = 0
+CDH_TURN_ON = 0
+CDH_TAKE_PHOTO_FINISH = 0
+ADSC_POWER = 0
