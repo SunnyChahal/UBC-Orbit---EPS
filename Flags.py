@@ -9,6 +9,13 @@ COMMSIDLE= 0
 SLEEPOUT = 0; # For signal turn on
 
 #ADSC 
+#Flags needed to be Pased through other system 
+CDH_TAKE_PHOTO = 0
+CDH_TURN_ON = 0
+CDH_TAKE_PHOTO_FINISH = 0
+ADSC_POWER = 0
+
+#Global Variables which only used by ADSC
 SLEEP_STATE = 0
 SLEEP_POWERDRAW = 0
 SLEEP_TIME = 0
@@ -26,7 +33,4 @@ PICTURE_STATE_POWER = 500    #assumption
 ADSC_STATE = 0
 FIRST_TIME = 1              #use it in Detumbling state to calculate the power
 
-CDH_TAKE_PHOTO = 0
-CDH_TURN_ON = 0
-CDH_TAKE_PHOTO_FINISH = 0
-ADSC_POWER = 0
+
