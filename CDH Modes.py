@@ -29,38 +29,42 @@ CDHstartTime = -1
 def CDHPower(sysTime):
     global CDHstartTime
     global CDHMode
+
     if(CDHstartTime == -1):
       CDHstartTime = sysTime
-      currentStateTimer = 0
-    if(sysTime == 0):
+
+    if(sysTime <  CDHstartTime + CDH.CDH_Turn_ON_Duration ):
         return (CDH.CDH_Turn_ON)
 
-    if(sysTime > 0):
-        if(CDHMode == 'receive comms'):
+    if(sysTime == CDHstartTime + CDH.CDH_Turn_ON_Duration + CDH.Turn_ON_Payload_Duration +60 ):
+        Flags.FLAG_Receive_PayLoad = 1
+
+    if(CDHMode == 'receive comms'): #assuming Turning on payload, and signaling ADCS have same duration
+        if(sysTime < CDHstartTime + CDH.CDH_Turn_ON_Duration + CDH.Turn_ON_Payload_Duration):
             return(CDH.Turn_ON_Payload + CDH.Signal_ADCS + CDH.COMM_Periodic)
-        if(CDHMode == 'receive payload'):
+    elif(CDHMode == 'receive payload'):
+        if(sysTime < CDHstartTime + CDH.CDH_Turn_ON_Duration + CDH.Turn_ON_Payload_Duration + CDH.Signal_COMMS_Duration +61):
             return(CDH.Signal_COMMS + CDH.COMM_Periodic)
-        if(CDHMode == 'Receive Latchup'):
+    elif(CDHMode == 'Receive Latchup'):
+        if(sysTime < CDHstartTime + CDH.CDH_Turn_ON_Duration + CDH.Turn_ON_Payload_Duration + CDH.Signal_COMMS_Duration+ CDH.Turn_OFFON_MCU_Duration):
             return(CDH.Turn_OFFON_MCU)
 
-        else:
-            return(CDH.COMM_Periodic)
+
+    return(CDH.COMM_Periodic)
 
     #return(COMM_Periodic)
 
 
 def main():
     b=[]
-    for sysTime in range(50):              #One Orbit
+    for sysTime in range(5400):              #One Orbit
         setflags(sysTime)
         b.append(CDHPower(sysTime))
         print(b[sysTime])
 
+
     CDH_Total_Power = sum(b)
-    print(CDH_Total_Power)             #Total Power
-
-
-
+    print("CDH Total Power(mW) =", CDH_Total_Power)             #Total Power
 
 
 
